@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1020">
+  <title>Portfolio — Your Name</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Animated portfolio demo" />
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header class="nav">
+    <div class="logo">Your Name</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Hi, I'm <span class="name">Your Name</span></h1>
+        <h2 class="role"><span id="typed"></span><span class="caret">|</span></h2>
+        <p class="lead">I build interactive web experiences and animated frontends.</p>
+        <a class="cta" href="#projects">See Projects</a>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h3>Projects</h3>
+      <div class="grid">
+        <article class="card">
+          <h4>Project A</h4>
+          <p>A short description about the project and tech used.</p>
+        </article>
+        <article class="card">
+          <h4>Project B</h4>
+          <p>Interactive demo with canvas and animations.</p>
+        </article>
+        <article class="card">
+          <h4>Project C</h4>
+          <p>Responsive UI with subtle motion and accessibility in mind.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h3>Contact</h3>
+      <p>Say hi — <a href="mailto:you@example.com">you@example.com</a></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

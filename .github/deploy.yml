@@ -1,0 +1,30 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.ADDRESS }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SECRET_KEY }}
+        script: |
+          cd /home/ubuntu
+          git clone https://github.com/kvamshi10/secondrepo.git app || (cd app && git pull origin main)
+          cd app
+          sudo docker build -t my-app .
+          sudo docker stop my-app-container || true
+          sudo docker rm my-app-container || true
+          sudo docker run -d --name my-app-container -p 80:80 my-app
+          echo "Deployment completed successfully!"
